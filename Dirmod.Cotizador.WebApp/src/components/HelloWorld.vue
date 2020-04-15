@@ -1,15 +1,19 @@
 <template>
-  <div class="hello">
+
+  <div>    
     <h1>{{ msg }}</h1>
     <div class="sample-api">
-      <h3>A continuación se listan las cotizaciones del dìa</h3>
+      <h3>A continuación se listan las cotizaciones del día</h3>
       <ul class="values-list">
-        <li v-for="value in values" :key="value.moneda">{{ value.moneda | capitalize }} - {{ value.precio }}</li>
+        <li v-for="value in values" :key="value.moneda">
+          <img v-bind:src="obtenerBandera(value.moneda)" width="24" height="24">
+          1 {{ value.moneda | capitalize }} - {{ value.precio }} pesos argentinos
+        </li>
       </ul>
       <div v-if="actualizando == true">
         Actualizando las cotizaciones...
       </div>
-
+      
     </div>
   </div>
 </template>
@@ -26,12 +30,10 @@ export default {
     return {
       values: [],
       actualizando: false,
-      timer: ''
+      timer: '',
     }
   },
-  created () {
-    // Send request to the ASP.NET Core application.
-    // Either send request to https://localhost:5001/api/values or setup vue dev proxy and send it to /api/values
+  created () {  
     this.actualizarCotizaciones();
     this.timer = setInterval(this.actualizarCotizaciones, 5000)
   },
@@ -62,6 +64,16 @@ export default {
           self.values.push(responses[2].data);
           self.actualizando = false;
         });      
+    },
+    obtenerBandera(codigo){
+      switch (codigo) {
+        case "euro":
+          return "https://image.flaticon.com/icons/svg/197/197374.svg"
+        case "dolar":
+          return "https://image.flaticon.com/icons/svg/197/197484.svg";
+        case "real":
+          return "https://image.flaticon.com/icons/svg/197/197386.svg";
+      }
     }
   }
 }
@@ -81,5 +93,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.values-list {
+  margin-top: 20px !important;
 }
 </style>

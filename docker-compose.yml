@@ -6,3 +6,11 @@ services:
     build: 
       context: .
       dockerfile: ./Dirmod.Cotizador.Application/Dockerfile
+  
+  dirmod-cotizador-web:
+      image: dirmod-cotizador-web:${TAG:-latest}
+      build: 
+        context: ./Dirmod.Cotizador.WebApp
+        dockerfile: ./Dockerfile
+      depends_on:
+       - dirmod-cotizador-app

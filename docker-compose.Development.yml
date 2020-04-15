@@ -6,3 +6,7 @@ services:
      - "5000:80"   
     environment:
      - ASPNETCORE_ENVIRONMENT=Development
+
+  dirmod-cotizador-web:
+    ports:
+     - "8080:80"

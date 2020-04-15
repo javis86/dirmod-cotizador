@@ -1,11 +1,13 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <HelloWorld msg="Bienvenidos al cotizador Dirmod"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'App',
