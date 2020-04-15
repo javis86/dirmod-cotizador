@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+
+  dirmod-cotizador-app:
+    image: dirmod-cotizador-app:${TAG:-latest}
+    build: 
+      context: .
+      dockerfile: ./Dirmod.Cotizador.Application/Dockerfile

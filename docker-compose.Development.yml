@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  
+  dirmod-cotizador-app:
+    ports:
+     - "5000:80"   
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Development
