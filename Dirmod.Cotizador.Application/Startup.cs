@@ -42,6 +42,11 @@ namespace Dirmod.Cotizador.Application
         {
             if (env.IsDevelopment())
             {
+                app.UseCors(policy => policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .WithOrigins("http://localhost:8080")
+                    .AllowCredentials());
                 app.UseDeveloperExceptionPage();
             }
 
