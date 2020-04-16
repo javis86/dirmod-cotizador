@@ -31,9 +31,11 @@ export default {
       values: [],
       actualizando: false,
       timer: '',
+      serverUrl: process.env.VUE_APP_SERVER_URL ?? 'http://localhost:5000', 
     }
   },
   created () {  
+    console.log(process.env.VUE_APP_SERVER_URL);
     this.actualizarCotizaciones();
     this.timer = setInterval(this.actualizarCotizaciones, 5000)
   },
@@ -52,9 +54,9 @@ export default {
         this.actualizando = true;
         let self = this;
 
-        let promise1 = axios.get('http://localhost:5000/cotizacion/dolar');
-        let promise2 = axios.get('http://localhost:5000/cotizacion/real');
-        let promise3 = axios.get('http://localhost:5000/cotizacion/euro');
+        let promise1 = axios.get(this.serverUrl + '/cotizacion/dolar');
+        let promise2 = axios.get(this.serverUrl + '/cotizacion/real');
+        let promise3 = axios.get(this.serverUrl + '/cotizacion/euro');
 
         Promise.all([promise1, promise2, promise3]).then(function(responses) {
           self.values = [];
