@@ -14,24 +14,33 @@ El proyecto consta de dos proyectos principales uno realizado en .netcore y el o
 
 
 
-#### Frameworks y librerías
+#### Frameworks, librerías y entornos
 
 Ambos proyectos constan de su dockerfile y en el root de la solución están las configuraciones propias para  realizar el build y up  con docker-compose.
 
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - [AutoMapper](https://automapper.org/) (para el mapeo de objetos)
-
 - [VUE.JS](https://vuejs.org/) (The progressive  Javascript Framework)
 - [Docker](https://www.docker.com/) (Securely build and share any application, anywhere)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Kubernetes](https://kubernetes.io/es/) 
 
 
 
 #### Demos
 
+Las imágenes se implementaron en Google Kubenetes Engine con las sigueintes Ips expuestas:
+
 Aplicación front: [VUEJS WEB APP](http://34.95.207.136/)
 
 Aplicación back: [NETCORE API cotizacion/dolar](http://35.199.108.169/cotizacion/dolar)
+
+
+
+#### Imágenes Docker
+
+- Dirmod Cotizador Web https://hub.docker.com/repository/docker/jcolombera/dirmod-cotizador-web
+- Dirmod Cotizador App https://hub.docker.com/repository/docker/jcolombera/dirmod-cotizador-app
 
 
 
